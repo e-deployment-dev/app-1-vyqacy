@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: app-1-system-zqbfjm
+    name: app-1-system-zqbfjm-deploy
+    namespace: default
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: app-1-system-zqbfjm
+    template:
+        metadata:
+            labels:
+                app: app-1-system-zqbfjm
+        spec:
+            containers:
+                - image: docker.io/wangxiamei/e-flow:20230619092311048
+                  imagePullPolicy: IfNotPresent
+                  name: app-1-system-zqbfjm
+                  resources:
+                    limits:
+                        cpu: 1
+                        memory: 2000Mi
+                    requests:
+                        cpu: 0.1
+                        memory: 100Mi
+            imagePullSecrets:
+                - name: app-1-system-zqbfjm-secret
+            restartPolicy: Always
