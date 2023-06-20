@@ -16,7 +16,7 @@ spec:
                 app: app-1-system-zqbfjm
         spec:
             containers:
-                - image: docker.io/wangxiamei/e-flow:20230619092311048
+                - image: docker.io/wangxiamei/e-flow:20230620085603684
                   imagePullPolicy: IfNotPresent
                   name: app-1-system-zqbfjm
                   resources:
