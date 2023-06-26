@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     labels:
-        app: app-1-system-zqbfjm
-    name: app-1-system-zqbfjm-deploy
+        app: app-1-system-6tdks4
+    name: app-1-system-6tdks4-deploy
     namespace: default
 spec:
-    replicas: 2
+    replicas: 1
     selector:
         matchLabels:
-            app: app-1-system-zqbfjm
+            app: app-1-system-6tdks4
     template:
         metadata:
             labels:
-                app: app-1-system-zqbfjm
+                app: app-1-system-6tdks4
         spec:
             containers:
-                - image: docker.io/wangxiamei/e-flow:20230620085603684
+                - image: nginx:1.14.2
                   imagePullPolicy: IfNotPresent
-                  name: app-1-system-zqbfjm
+                  name: app-1-system-6tdks4
                   resources:
                     limits:
                         cpu: 1
@@ -26,6 +26,4 @@ spec:
                     requests:
                         cpu: 0.1
                         memory: 100Mi
-            imagePullSecrets:
-                - name: app-1-system-zqbfjm-secret
             restartPolicy: Always
